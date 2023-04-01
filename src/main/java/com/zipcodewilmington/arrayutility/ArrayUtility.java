@@ -52,6 +52,15 @@ public class ArrayUtility<T>{
     }
 
     public T getMostCommonFromMerge(T[] arrayToMerge) {
-        return null;
+        int maxDup = 0;
+        T ans = arrayToMerge[0];
+        for(T t : arrayToMerge){
+            Integer curDup = countDuplicatesInMerge(arrayToMerge,t);
+            if(curDup > maxDup){
+                maxDup = curDup;
+                ans = t;
+            }
+        }
+        return ans;
     }
 }
