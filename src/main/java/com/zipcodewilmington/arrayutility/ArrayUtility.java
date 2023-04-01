@@ -1,6 +1,7 @@
 package com.zipcodewilmington.arrayutility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 3/6/18.
@@ -29,11 +30,25 @@ public class ArrayUtility<T>{
     }
 
     public Integer getNumberOfOccurrences(T valueToEvaluate) {
-        return null;
+        Integer count = 0;
+        for(T t : inputArray){
+            if(t.equals(valueToEvaluate)){
+                count++;
+            }
+        }
+        return count;
     }
 
     public T[] removeValue(T valueToRemove) {
-        return null;
+        T[] newArr = Arrays.copyOf(inputArray,inputArray.length-getNumberOfOccurrences(valueToRemove));
+        int index = 0;
+        for(T t : inputArray){
+            if(!t.equals(valueToRemove)){
+                newArr[index] = t;
+                index++;
+            }
+        }
+        return newArr;
     }
 
     public T getMostCommonFromMerge(T[] arrayToMerge) {
